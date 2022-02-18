@@ -19,16 +19,19 @@ void initialize_game(void)
       questions.answered = false;
     }
 
+    // "Programming" Category values
     questions[0].value = 100;
     questions[1].value = 200;
     questions[2].value = 300;
     questions[3].value = 400;
 
+    // "Algorithms" Category values
     questions[4].value = 100;
     questions[5].value = 200;
     questions[6].value = 300;
     questions[7].value = 400;
 
+    // "Databases" Category values
     questions[8].value = 100;
     questions[9].value = 200;
     questions[10].value = 300;
