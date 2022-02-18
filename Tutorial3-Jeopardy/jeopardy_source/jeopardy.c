@@ -38,8 +38,14 @@ int main(int argc, char *argv[])
     initialize_game();
 
     // Prompt for players names
-    
+    printf("Welcome to JEOPORDY");
+
     // initialize each of the players in the array
+    for(int i=0;  i<4; i++){
+        printf("Please enter player %i name: ");
+        scanf("%s", (char *) &players[i].name);
+    }
+
 
     // Perform an infinite loop getting command input from users until game ends
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
