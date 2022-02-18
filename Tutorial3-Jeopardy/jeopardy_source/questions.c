@@ -19,20 +19,38 @@ void initialize_game(void)
       questions.answered = false;
     }
 
-    strcpy(questions[0].question, "what is 1+1");
-    strcpy(questions[1].question, "what is 2+2");
-    strcpy(questions[2].question, "what is 3+3");
-    strcpy(questions[3].question, "what is 4+4");
-    strcpy(questions[4].question, "what is 5+5");
-    strcpy(questions[5].question, "what is 6+6");
-    strcpy(questions[6].question, "what is 7+7");
-    strcpy(questions[7].question, "what is 8+8");
-    strcpy(questions[8].question, "what is 9+9");
-    strcpy(questions[9].question, "what is 10+10");
-    strcpy(questions[10].question, "what is 11+11");
-    strcpy(questions[11].question, "what is 12+12");
+    questions[0].value = 100;
+    questions[1].value = 200;
+    questions[2].value = 300;
+    questions[3].value = 400;
 
+    questions[4].value = 100;
+    questions[5].value = 200;
+    questions[6].value = 300;
+    questions[7].value = 400;
 
+    questions[8].value = 100;
+    questions[9].value = 200;
+    questions[10].value = 300;
+    questions[11].value = 400;
+
+    // "Programming" Questions CATEGORY
+    strcpy(questions[0].question, "what is 1+1"); // 100
+    strcpy(questions[1].question, "what is 2+2"); // 200
+    strcpy(questions[2].question, "what is 3+3"); // 300
+    strcpy(questions[3].question, "what is 4+4"); // 400
+
+    // "Algorithms" Questions CATEGORY
+    strcpy(questions[4].question, "what is 5+5"); // 100
+    strcpy(questions[5].question, "what is 6+6"); // 200
+    strcpy(questions[6].question, "what is 7+7"); // 300
+    strcpy(questions[7].question, "what is 8+8"); // 400
+
+    // "Databases" Questions CATEGORY
+    strcpy(questions[8].question, "what is 9+9");    // 100
+    strcpy(questions[9].question, "what is 10+10");  // 200
+    strcpy(questions[10].question, "what is 11+11"); // 300  
+    strcpy(questions[11].question, "what is 12+12"); // 400
 }
 
 // Displays each of the remaining categories and question dollar values that have not been answered
