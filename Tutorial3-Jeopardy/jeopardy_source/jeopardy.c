@@ -77,7 +77,18 @@ void tokenize(char *input, char **tokens) {
 }
 
 void show_results(player *players, int num_players) {
+    int max = players[0].score;
+    int win = 0;
+
     for (int i=0; i<num_players; i++){
+
+      if (max < players[i].score) {
+        max = players[i].score;
+        win = i;
+      }
+
         printf("Name: %s Score: %d\n", players[i].name, players[i].score);
     }
+
+    printf("The winner of the game with a score of %d is %s!", max, players[win].name);
 }
