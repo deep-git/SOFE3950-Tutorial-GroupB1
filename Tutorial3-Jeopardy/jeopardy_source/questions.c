@@ -19,64 +19,61 @@ void initialize_game(void)
       questions[i].answered = false;
     }
 
-    //------------------------VALUES------------------------
-    // "Programming" 
+    //------------------------VALUES/QUESTIONS/ANSWERS------------------------
+
+
+    //------------------------ "Programming" ------------------------
+    strcpy(questions[0].question, "A datatype used for data values that are made up of ordered sequences of characters"); 
+    strcpy(questions[0].answer, "What is a String"); 
     questions[0].value = 100;
+
+    strcpy(questions[1].question, "A program that processes statements written in a high-level programming language and turns them into machine language or 'code' that a computer's processor uses."); 
+    strcpy(questions[1].answer, "What is a Compiler"); 
     questions[1].value = 200;
+
+    strcpy(questions[2].question, "what is 3+3"); 
+    strcpy(questions[2].answer, "6"); 
     questions[2].value = 300;
+    
+    strcpy(questions[3].question, "what is 4+4"); 
+    strcpy(questions[3].answer, "8"); 
     questions[3].value = 400;
 
-    // "Algorithms" 
+    //------------------------"Algorithms"------------------------
+    strcpy(questions[4].question, "A step-by-step instructions used to solve a problem"); 
+    strcpy(questions[4].answer, "What is"); 
     questions[4].value = 100;
+
+    strcpy(questions[5].question, "A divide and conquer sorting algorithm."); 
+    strcpy(questions[5].answer, "What is Merge Sort");
     questions[5].value = 200;
+
+    strcpy(questions[6].question, "what is 7+7"); 
+    strcpy(questions[5].answer, "14");
     questions[6].value = 300;
+
+    strcpy(questions[7].question, "what is 8+8"); 
+    strcpy(questions[5].answer, "16"); 
     questions[7].value = 400;
 
-    // "Databases"
-    questions[8].value = 100;
-    questions[9].value = 200;
-    questions[10].value = 300;
-    questions[11].value = 400;
-
-    //------------------------QUESTIONS------------------------
-    // "Programming" 
-    strcpy(questions[0].question, "what is 1+1"); // 100
-    strcpy(questions[1].question, "what is 2+2"); // 200
-    strcpy(questions[2].question, "what is 3+3"); // 300
-    strcpy(questions[3].question, "what is 4+4"); // 400
-
-    // "Algorithms"
-    strcpy(questions[4].question, "what is 5+5"); // 100
-    strcpy(questions[5].question, "what is 6+6"); // 200
-    strcpy(questions[6].question, "what is 7+7"); // 300
-    strcpy(questions[7].question, "what is 8+8"); // 400
-
-    // "Databases"
+    //------------------------"Databases"------------------------
     strcpy(questions[8].question, "what is 9+9");    // 100
-    strcpy(questions[9].question, "what is 10+10");  // 200
-    strcpy(questions[10].question, "what is 11+11"); // 300  
-    strcpy(questions[11].question, "what is 12+12"); // 400
-
-    //------------------------ANSWERS------------------------
-    // "Programming" 
-    strcpy(questions[0].answer, "2"); // 100
-    strcpy(questions[1].answer, "4"); // 200
-    strcpy(questions[2].answer, "6"); // 300
-    strcpy(questions[3].answer, "8"); // 400
-
-    // "Algorithms"
-    strcpy(questions[4].answer, "10"); // 100
-    strcpy(questions[5].answer, "12"); // 200
-    strcpy(questions[6].answer, "14"); // 300
-    strcpy(questions[7].answer, "16"); // 400
-
-    // "Databases"
     strcpy(questions[8].answer, "18");  // 100
+    questions[8].value = 100;
+  
+    strcpy(questions[9].question, "what is 10+10");  // 200
     strcpy(questions[9].answer, "20");  // 200
+    questions[9].value = 200;
+
+    strcpy(questions[10].question, "what is 11+11"); // 300  
     strcpy(questions[10].answer, "22"); // 300  
-    strcpy(questions[11].answer, "24"); // 400
+    questions[10].value = 300;
 
     
+    strcpy(questions[11].question, "what is 12+12"); // 400
+    strcpy(questions[11].answer, "24"); // 400
+    questions[11].value = 400;
+
 }
 
 // Displays each of the remaining categories and question dollar values that have not been answered
