@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     printf("Welcome to JEOPORDY");
 
     // initialize each of the players in the array
-    for(int i=0;  i<4; i++){
+    for(int i=0;  i<NUM_PLAYERS; i++){
         printf("Please enter player %i name: ");
         scanf("%s", (char *) &players[i].name);
     }
@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
         // Execute the game until all questions are answered
 
         // Display the final results and exit
+        show_results(players, NUM_PLAYERS);
     }
     return EXIT_SUCCESS;
 }
@@ -76,5 +77,7 @@ void tokenize(char *input, char **tokens) {
 }
 
 void show_results(player *players, int num_players) {
-
+    for (int i=0; i<num_players; i++){
+        printf("Name: %s Score: %d\n", players[i].name, players[i].score);
+    }
 }
