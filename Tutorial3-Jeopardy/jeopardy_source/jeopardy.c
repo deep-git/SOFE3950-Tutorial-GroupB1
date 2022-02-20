@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 {
     // An array of 4 players, may need to be a pointer if you want it set dynamically
     player players[NUM_PLAYERS];
-    
+
     // Input buffer and and commands
     char buffer[BUFFER_LEN] = { 0 };
 
@@ -52,9 +52,29 @@ int main(int argc, char *argv[])
     {
         // Call functions from the questions and players source files
 
+
         // Execute the game until all questions are answered
 
         // Display the final results and exit
     }
     return EXIT_SUCCESS;
+}
+
+void tokenize(char *input, char **tokens) {
+  const char endPoint = " ";
+
+    *tokens = strtok(input, endPoint);
+    if (strcmp(*tokens, "who") != 0 || strcmp(*tokens, "what") != 0) {
+      return;
+    }
+
+    *tokens = strtok(NULL, endPoint);
+    if (strcmp(*tokens, "is") != 0) {
+      return;
+    }
+
+}
+
+void show_results(player *players, int num_players) {
+
 }
