@@ -132,14 +132,8 @@ void display_question(char *category, int value)
 bool valid_answer(char *category, int value, char *answer)
 {
     // Look into string comparison functions
-    for (int i=0; i < NUM_QUESTIONS; i++){
-      if (questions[i].value == value && strcmp(questions[i].category, category) == 0){
-        if (questions[i].answer == answer){
-          return true;
-        }
-      }
-    }
-    return false;
+    int questNum = question_num(category, value);
+    return (strcasecmp(answer, questions[questNum].answer) == 0);
 }
 
 // Determines which question number the player is on
