@@ -18,6 +18,8 @@
 #define NUM_PLAYERS 4
 
 // Put global environment variables here
+char *category;
+int value;
 
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
 void tokenize(char *input, char **tokens);
@@ -38,31 +40,44 @@ int main(int argc, char *argv[])
     initialize_game();
 
     // Prompt for players names
-    printf("Welcome to JEOPORDY");
+    system("clear");
+    printf("--------------------Welcome to JEOPORDY--------------------\n");
 
     // initialize each of the players in the array
     for(int i=0;  i<NUM_PLAYERS; i++){
-        printf("Please enter player %i name: ");
+        printf("Please enter PLAYER %d name: ", i+1);
         scanf("%s", (char *) &players[i].name);
+        players[i].score = 0;
     }
 
+    printf("-----------------------------------------------------------\n");
 
     // Perform an infinite loop getting command input from users until game ends
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
-        // Call functions from the questions and players source files
 
+        // Call functions from the questions and players source files
+        display_categories();
+
+        printf("\nCategory: "); 
+            scanf("%c", &category);
+        printf("Value: "); 
+            scanf("%d", &value);
+
+        display_question(category, value);
+        
 
         // Execute the game until all questions are answered
 
         // Display the final results and exit
+        printf("-----------------------------------------------------------\n");
         show_results(players, NUM_PLAYERS);
     }
     return EXIT_SUCCESS;
 }
 
 void tokenize(char *input, char **tokens) {
-  const char endPoint = " ";
+  const char *endPoint = " ";
 
     *tokens = strtok(input, endPoint);
     if (strcmp(*tokens, "who") != 0 || strcmp(*tokens, "what") != 0) {
