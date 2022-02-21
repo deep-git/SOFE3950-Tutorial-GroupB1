@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
         // Call functions from the questions and players source files
         display_categories();
         printf("\n-----------------------------------------------------------\n");
-        printf("Please enter the CATEGORY and then the VALUE to answer:\n");
+        printf("Please enter the CATEGORY (0-2) and then the VALUE to answer:\n");
 
         scanf("%s", category);          //take user input
         scanf("%d", &value);
@@ -78,8 +78,10 @@ int main(int argc, char *argv[])
             printf("ANSWER: ");
             scanf("%s", answer);
 
-            if(valid_answer(category, value, answer)){
-                printf("valid");
+            if(!(valid_answer(category, value, answer))){
+                printf("\nWRONG ANSWER\n");
+            }else{
+                printf("\nCORRECT!\n");
             }
         }
 
@@ -110,6 +112,8 @@ void tokenize(char *input, char **tokens) {
 void show_results(player *players, int num_players) {
     int max = players[0].score;
     int win = 0;
+
+    printf("Final Jeopordy Scores: ");
 
     for (int i=0; i<num_players; i++){
 

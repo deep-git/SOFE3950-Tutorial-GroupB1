@@ -15,7 +15,7 @@ void initialize_game(void)
 {
     // initialize each question struct and assign it to the questions array
     for (int i = 0; i < NUM_QUESTIONS; i++) {
-      //strcpy(questions[i].category, categories[i % NUM_CATEGORIES]);
+      strcpy(questions[i].category, categories[i % NUM_CATEGORIES]);
       questions[i].answered = false;
     }
 
@@ -23,53 +23,64 @@ void initialize_game(void)
 
 
     //------------------------ "Programming" ------------------------
+    strcpy(questions[0].category, categories[0]);
     strcpy(questions[0].question, "A datatype used for data values that are made up of ordered sequences of characters");
     strcpy(questions[0].answer, "What is a String");
     questions[0].value = 100;
 
+    strcpy(questions[1].category, categories[0]);
     strcpy(questions[1].question, "A program that processes statements written in a high-level programming language and turns them into machine language or 'code' that a computer's processor uses.");
     strcpy(questions[1].answer, "What is a Compiler");
     questions[1].value = 200;
 
+    strcpy(questions[2].category, categories[0]);
     strcpy(questions[2].question, "what is 3+3");
     strcpy(questions[2].answer, "6");
     questions[2].value = 300;
 
+    strcpy(questions[3].category, categories[0]);
     strcpy(questions[3].question, "what is 4+4");
     strcpy(questions[3].answer, "8");
     questions[3].value = 400;
 
     //------------------------"Algorithms"------------------------
+    strcpy(questions[4].category, categories[1]);
     strcpy(questions[4].question, "A step-by-step instructions used to solve a problem");
     strcpy(questions[4].answer, "What is an Algorithm");
     questions[4].value = 100;
 
+    strcpy(questions[5].category, categories[1]);
     strcpy(questions[5].question, "A divide and conquer sorting algorithm.");
     strcpy(questions[5].answer, "What is Merge Sort");
     questions[5].value = 200;
 
+    strcpy(questions[6].category, categories[1]);
     strcpy(questions[6].question, "what is 7+7");
-    strcpy(questions[5].answer, "14");
+    strcpy(questions[6].answer, "14");
     questions[6].value = 300;
 
+    strcpy(questions[7].category, categories[1]);
     strcpy(questions[7].question, "what is 8+8");
-    strcpy(questions[5].answer, "16");
+    strcpy(questions[7].answer, "16");
     questions[7].value = 400;
 
     //------------------------"Databases"------------------------
+    strcpy(questions[8].category, categories[2]);
     strcpy(questions[8].question, "what is 9+9");    // 100
     strcpy(questions[8].answer, "18");  // 100
     questions[8].value = 100;
 
+    strcpy(questions[9].category, categories[2]);
     strcpy(questions[9].question, "what is 10+10");  // 200
     strcpy(questions[9].answer, "20");  // 200
     questions[9].value = 200;
 
+    strcpy(questions[10].category, categories[2]);
     strcpy(questions[10].question, "what is 11+11"); // 300
     strcpy(questions[10].answer, "22"); // 300
     questions[10].value = 300;
 
-
+    strcpy(questions[11].category, categories[2]);
     strcpy(questions[11].question, "what is 12+12"); // 400
     strcpy(questions[11].answer, "24"); // 400
     questions[11].value = 400;
