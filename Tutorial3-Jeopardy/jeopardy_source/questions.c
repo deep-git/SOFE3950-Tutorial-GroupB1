@@ -106,16 +106,14 @@ void display_categories(void)
       printf(" ");
     }
 
-    for (int i = 0; i < NUM_QUESTIONS; i++) {
+    printf("\n");
+
+    for (int i = 0; i < 4; i++) {
       for (int j = 0; j < 3; j++) {
         if (questions[i].answered == false) {
           printf("      | $%d ", questions[i].value);
         } else {
           printf("      | %s ", " - ");
-        }
-
-        if (i % 3 == 2) {
-          printf("      |\n");
         }
       }
 
