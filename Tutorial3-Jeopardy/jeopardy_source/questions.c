@@ -15,7 +15,7 @@ void initialize_game(void)
 {
     // initialize each question struct and assign it to the questions array
     for (int i = 0; i < NUM_QUESTIONS; i++) {
-      strcpy(questions[i].category, categories[i % NUM_CATEGORIES]);
+      //strcpy(questions[i].category, categories[i % NUM_CATEGORIES]);
       questions[i].answered = false;
     }
 
@@ -87,7 +87,7 @@ void display_categories(void)
     }
 
     for (int i = 0; i < 3; i++) {
-      printf("| %s", categories[i])
+      printf("| %s", categories[i]);
     }
 
     for (int i = 0; i < 3; i++) {
