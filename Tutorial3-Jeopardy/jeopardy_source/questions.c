@@ -41,7 +41,7 @@ void initialize_game(void)
 
     //------------------------"Algorithms"------------------------
     strcpy(questions[4].question, "A step-by-step instructions used to solve a problem"); 
-    strcpy(questions[4].answer, "What is"); 
+    strcpy(questions[4].answer, "What is an Algorithm"); 
     questions[4].value = 100;
 
     strcpy(questions[5].question, "A divide and conquer sorting algorithm."); 
