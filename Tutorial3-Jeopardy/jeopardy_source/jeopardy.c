@@ -19,8 +19,10 @@
 
 // Put global environment variables here
 char category[MAX_LEN] = "";
+char currentPlayer[MAX_LEN] = "";
 char answer[MAX_LEN] = {0};
-int value;
+char *tokenizeAnswer;
+int value = 0;
 
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
 void tokenize(char *input, char **tokens);
@@ -61,12 +63,27 @@ int main(int argc, char *argv[])
 
         // Execute the game until all questions are answered
         // Call functions from the questions and players source files
-        display_categories();
-        printf("\n-----------------------------------------------------------\n");
-        printf("Please enter the CATEGORY (0-2) and then the VALUE to answer:\n");
+        
 
-        scanf("%s", category);          //take user input
-        scanf("%d", &value);
+        display_categories();
+
+        printf("\n-----------------------------------------------------------\n");
+        printf("Which player is currently playing? ");
+        scanf("%s", (char *) &currentPlayer);
+
+        printf("-----------------------------------------------------------\n");
+        printf("Please enter the CATEGORY and then the VALUE to answer:\n");
+        
+        // scanf("%s", category);          //take user input
+        // scanf("%d", &value);
+
+        printf("CATEGORY: ");
+        getchar();
+        fgets((char *) category, MAX_LEN, stdin);
+        strtok(category, "\n");
+
+        printf("VALUE: ");
+        scanf("%d", (int *) &value);
 
         if (already_answered(category, value)){
             printf("The chosen Question has already been answered. CHOOSE ANOTHER\n");
@@ -76,12 +93,18 @@ int main(int argc, char *argv[])
             display_question(category, value);
             printf("\n-----------------------------------------------------------\n");
             printf("ANSWER: ");
-            scanf("%s", answer);
+            getchar();
+            fgets((char *) answer, MAX_LEN, stdin);
 
-            if(!(valid_answer(category, value, answer))){
-                printf("\nWRONG ANSWER\n");
+            tokenize((char *) answer, &tokenizeAnswer);
+            if(tokenizeAnswer == NULL){
+                printf("Try again");
+
+            }else if(valid_answer(category, value, answer)){
+                printf("\nCORRECT ANSWER\n");       
+
             }else{
-                printf("\nCORRECT!\n");
+                printf("\nWRONG ANSWER\n");
             }
         }
 
