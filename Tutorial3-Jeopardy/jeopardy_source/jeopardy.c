@@ -88,21 +88,26 @@ int main(int argc, char *argv[])
         if (already_answered(category, value)){
             printf("The chosen Question has already been answered. CHOOSE ANOTHER\n");
         }else{
+
+            // display question
             printf("-----------------------------------------------------------\n");
             printf("QUESTION: ");
             display_question(category, value);
             printf("\n-----------------------------------------------------------\n");
+            
+            // get player answer
             printf("ANSWER: ");
             getchar();
             fgets((char *) answer, MAX_LEN, stdin);
-
+            
+            // verify player answer
             tokenize((char *) answer, &tokenizeAnswer);
             if(tokenizeAnswer == NULL){
                 printf("Try again");
 
             }else if(valid_answer(category, value, answer)){
                 printf("\nCORRECT ANSWER\n");       
-
+                update_score(players, NUM_PLAYERS, currentPlayer, value);
             }else{
                 printf("\nWRONG ANSWER\n");
             }
