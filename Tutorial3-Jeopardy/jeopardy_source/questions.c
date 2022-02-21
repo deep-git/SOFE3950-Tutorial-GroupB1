@@ -124,11 +124,8 @@ void display_categories(void)
 // Displays the question for the category and dollar value
 void display_question(char *category, int value)
 {
-    for (int i=0; i < NUM_QUESTIONS; i++){
-      if (questions[i].value == value && strcmp(questions[i].category, category) == 0){
-        printf("%s",questions[i].question);
-      }
-    }
+  int questionNum = question_num(category, value);
+  printf("%s", questions[questionNum].question);
 }
 
 // Returns true if the answer is correct for the question for that category and dollar value
@@ -143,6 +140,15 @@ bool valid_answer(char *category, int value, char *answer)
       }
     }
     return false;
+}
+
+// Determines which question number the player is on
+int question_num(char *category, int value) {
+  for (int i = 0; i < NUM_QUESTIONS; i++) {
+    if (questions[i].value == value && strcmp(questions[i].category, category) == 0) {
+      return (i);
+    }
+  }
 }
 
 // Returns true if the question has already been answered
