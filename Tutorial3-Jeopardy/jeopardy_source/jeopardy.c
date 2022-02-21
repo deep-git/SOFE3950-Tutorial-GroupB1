@@ -20,6 +20,8 @@
 // Put global environment variables here
 char *category;
 int value;
+char *answer;
+
 
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
 void tokenize(char *input, char **tokens);
@@ -55,20 +57,30 @@ int main(int argc, char *argv[])
     // Perform an infinite loop getting command input from users until game ends
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
+        // Execute the game until all questions are answered
+        while(sizeof(questions) > 0){
+            // Call functions from the questions and players source files
+            display_categories();
+            printf("\n-----------------------------------------------------------\n");
+            printf("Please enter the CATEGORY and VALUE to answer:\n");
 
-        // Call functions from the questions and players source files
-        display_categories();
-
-        printf("\nCategory: "); 
-            scanf("%c", &category);
-        printf("Value: "); 
+            scanf("%s", category);          //take user input
             scanf("%d", &value);
 
-        display_question(category, value);
+            if (already_answered(category, value)){
+                printf("The chosen Question has already been answered. CHOOSE ANOTHER");
+            }else{
+                display_question(category, value);
+
+                scanf("%s", answer);
+
+                if(valid_answer(category, value, answer)){
+                    printf("valid");
+                }
+            }
+
+        }
         
-
-        // Execute the game until all questions are answered
-
         // Display the final results and exit
         printf("-----------------------------------------------------------\n");
         show_results(players, NUM_PLAYERS);
