@@ -135,8 +135,14 @@ void display_question(char *category, int value)
 bool valid_answer(char *category, int value, char *answer)
 {
     // Look into string comparison functions
-    int questNum = question_num(category, value);
-    return (strcasecmp(answer, questions[questNum].answer) == 0);
+    for (int i=0; i < NUM_QUESTIONS; i++){
+      if (questions[i].value == value && strcmp(questions[i].category, category) == 0){
+        if (questions[i].answer == answer){
+          return true;
+        }
+      }
+    }
+    return false;
 }
 
 // Returns true if the question has already been answered
