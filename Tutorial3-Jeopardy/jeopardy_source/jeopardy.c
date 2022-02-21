@@ -5,6 +5,13 @@
  * All rights reserved.
  *
  */
+
+ /*
+Roniel Casaclang 100755336
+Deepak Thangella 100695929
+Lorenzo Caguimbal 100555976
+ */
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -63,7 +70,7 @@ int main(int argc, char *argv[])
 
         // Execute the game until all questions are answered
         // Call functions from the questions and players source files
-        
+
 
         display_categories();
 
@@ -73,7 +80,7 @@ int main(int argc, char *argv[])
 
         printf("-----------------------------------------------------------\n");
         printf("Please enter the CATEGORY and then the VALUE to answer:\n");
-        
+
         // scanf("%s", category);          //take user input
         // scanf("%d", &value);
 
@@ -94,19 +101,19 @@ int main(int argc, char *argv[])
             printf("QUESTION: ");
             display_question(category, value);
             printf("\n-----------------------------------------------------------\n");
-            
+
             // get player answer
             printf("ANSWER: ");
             getchar();
             fgets((char *) answer, MAX_LEN, stdin);
-            
+
             // verify player answer
             tokenize((char *) answer, &tokenizeAnswer);
             if(tokenizeAnswer == NULL){
                 printf("Try again");
 
             }else if(valid_answer(category, value, answer)){
-                printf("\nCORRECT ANSWER\n");       
+                printf("\nCORRECT ANSWER\n");
                 update_score(players, NUM_PLAYERS, currentPlayer, value);
             }else{
                 printf("\nWRONG ANSWER\n");
