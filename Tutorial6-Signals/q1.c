@@ -41,14 +41,27 @@ void push(struct queue *head, struct proc create_process) {
   current->next->next = NULL;
 }
 
+void print_proc(struct proc *display_process) {
+  // Sets the structure process equal to the parameter value type
+  struct proc* process = display_process;
+
+  // Prints the contents of the linked list
+  printf("Name: %s\n", process->name);
+  printf("Priority: %d\n", process->priority);
+  printf("PID: %d\n", process->pid);
+  printf("Runtime: %d\n", process->runtime);
+  printf("\n");
+}
+
 int main(void) {
-  struct queue *head = NULL;
-  struct proc *create_process;
+  struct queue *head = NULL;     // Declare queue structure starting head value NULL since linked list is empty
+  struct proc *create_process;     // Declare create_process variable of type proc structure
   char *token;     // Declare token variable
   char read_process_info[256];     // Declare variable to hold each line info from file
 
   head = malloc(sizeof(struct queue));
   head->next = NULL;     // Sets the next head value of the linked list to NULL
+  struct queue* current = head;
 
   FILE *file1 = fopen(FILE1, "r");     // Opens the processes.txt file in read mode
 
@@ -80,11 +93,13 @@ int main(void) {
     push(head, *create_process);
   }
 
-  // Prints the contents of the linked list
-  printf("Name: %s\n", create_process->name);
-  printf("Priority: %d\n", create_process->priority);
-  printf("PID: %d\n", create_process->pid);
-  printf("Runtime: %d\n", create_process->runtime);
+  // Loop through the linked list until reaching the end of the list
+  while (current->next != NULL) {
+    struct proc process = current->process;     // Set process variable equal to the current process
+    print_proc(&process);     // Calls the print process method with argument as process
+    current = current->next;     // Sets the current variable equal to the next value of the linked list
+  }
 
+  // Returns 0
   return 0;
 }
