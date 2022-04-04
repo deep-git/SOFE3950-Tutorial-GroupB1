@@ -179,20 +179,13 @@ int main(void) {
   // Call functions to delete name and pid and then print the processes
   print_proc(delete_name(&head, "emacs"));
   print_proc(delete_pid(&head, 12235));
-
+  
   // Loop through the linked list until reaching the end of the list
   while (current->next != NULL) {
     struct proc process = current->process;     // Set process variable equal to the current process
     print_proc(&process);     // Calls the print process method with argument as process
     current = current->next;     // Sets the current variable equal to the next value of the linked list
   }
-
-  /*
-  // While there is another element in the linked list, print the process of the next popped element
-  while (head->next != NULL) {
-    print_proc(pop(&head->next));
-  }
-  */
 
   // Returns 0
   return 0;
