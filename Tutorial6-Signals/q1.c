@@ -61,7 +61,7 @@ int main(void) {
 
   head = malloc(sizeof(struct queue));
   head->next = NULL;     // Sets the next head value of the linked list to NULL
-  struct queue* current = head;
+  struct queue* current = head;     // Declare queue structure current value equal to the head
 
   FILE *file1 = fopen(FILE1, "r");     // Opens the processes.txt file in read mode
 
